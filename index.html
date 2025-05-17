@@ -2,19 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Novela Visual</title>
+  <title>Novela Visual</title>
   <style>
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
       height: 100%;
+      font-family: Arial, sans-serif;
     }
 
     #background {
-      background-image: url('https://files.catbox.moe/he9sty.jpg'); /* Cambia esto por el nombre real de tu imagen */
+      background-image: url('https://files.catbox.moe/he9sty.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -23,10 +25,25 @@
       position: fixed;
       top: 0;
       left: 0;
+      z-index: 0;
+    }
+
+    #textbox {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6); /* fondo oscuro semitransparente */
+      color: white;
+      padding: 20px;
+      font-size: 1.5em;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
   <div id="background"></div>
+  <div id="textbox">
+    Era una mañana nublada. El viento soplaba suavemente mientras llegaba a la escuela...
+  </div>
 </body>
 </html>
