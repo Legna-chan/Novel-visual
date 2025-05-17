@@ -32,18 +32,59 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.6); /* fondo oscuro semitransparente */
+      background: rgba(0, 0, 0, 0.6);
       color: white;
       padding: 20px;
       font-size: 1.5em;
       z-index: 1;
+    }
+
+    #continuar {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffffffcc;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #continuar:hover {
+      background-color: #ddd;
     }
   </style>
 </head>
 <body>
   <div id="background"></div>
   <div id="textbox">
-    Era una mañana nublada. El viento soplaba suavemente mientras llegaba a la escuela...
+    <span id="dialogo">Era una mañana nublada. El viento soplaba suavemente mientras llegaba a la escuela...</span>
+    <br><br>
+    <button id="continuar">Continuar</button>
   </div>
+
+  <script>
+    const dialogos = [
+      "Era una mañana nublada. El viento soplaba suavemente mientras llegaba a la escuela...",
+      "A lo lejos, el edificio parecía más sombrío de lo normal.",
+      "Una sensación extraña recorría mi espalda... como si alguien me observase.",
+      "De pronto, escuché pasos detrás de mí, pero al voltear, no había nadie."
+    ];
+
+    let indice = 0;
+    const dialogoSpan = document.getElementById("dialogo");
+    const boton = document.getElementById("continuar");
+
+    boton.addEventListener("click", () => {
+      indice++;
+      if (indice < dialogos.length) {
+        dialogoSpan.textContent = dialogos[indice];
+      } else {
+        boton.disabled = true;
+        boton.textContent = "Fin";
+      }
+    });
+  </script>
 </body>
 </html>
