@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Novela Visual</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Mi Novela Visual</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    #background {
+      background-image: url('https://files.catbox.moe/he9sty.jpg'); /* Cambia esto por el nombre real de tu imagen */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
 </head>
 <body>
-  <div class="fondo">
-    <img src="https://files.catbox.moe/he9sty.jpg" alt="Escuela" class="imagen-fondo" />
-    <div class="texto-narrador" id="narrador">
-      Era una mañana nublada... El aire se sentía extraño mientras llegaba a mi nueva escuela.
-    </div>
-    <button onclick="siguienteTexto()">Continuar</button>
-  </div>
-
-  <script src="script.js"></script>
+  <div id="background"></div>
 </body>
 </html>
