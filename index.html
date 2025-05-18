@@ -2,89 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Novela Visual</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-
-    #background {
-      background-image: url('https://files.catbox.moe/td8utk.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100vw;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-
-    #textbox {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 20px;
-      font-size: 1.5em;
-      z-index: 1;
-    }
-
-    #continuar {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #ffffffcc;
-      color: black;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    #continuar:hover {
-      background-color: #ddd;
-    }
-  </style>
+  <title>Waifu Jump</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="background"></div>
-  <div id="textbox">
-    <span id="dialogo">Era una mañana nublada. El viento soplaba suavemente mientras llegaba a la escuela...</span>
-    <br><br>
-    <button id="continuar">Continuar</button>
+  <div id="game">
+    <img id="waifu" src="waifu.png" alt="waifu">
+    <img id="obstacle" src="obstacle.png" alt="obstacle">
   </div>
-
-  <script>
-    const dialogos = [
-      "Era una mañana nublada. El viento soplaba suavemente mientras llegaba a la escuela...",
-      "A lo lejos, el edificio parecía más sombrío de lo normal.",
-      "Una sensación extraña recorría mi espalda... como si alguien me observase.",
-      "De pronto, escuché pasos detrás de mí, pero al voltear, no había nadie."
-    ];
-
-    let indice = 0;
-    const dialogoSpan = document.getElementById("dialogo");
-    const boton = document.getElementById("continuar");
-
-    boton.addEventListener("click", () => {
-      indice++;
-      if (indice < dialogos.length) {
-        dialogoSpan.textContent = dialogos[indice];
-      } else {
-        boton.disabled = true;
-        boton.textContent = "Fin";
-      }
-    });
-  </script>
+  <p id="score">Puntos: 0</p>
+  <script src="script.js"></script>
 </body>
 </html>
