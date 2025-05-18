@@ -1,17 +1,43 @@
-const textos = [
-  "Era una mañana nublada... El aire se sentía extraño mientras llegaba a mi nueva escuela.",
-  "Las puertas de la secundaria Takayama se abrieron con un crujido escalofriante...",
-  "No sabía que este sería el comienzo de algo que cambiaría mi vida para siempre.",
-  "Una historia de amor... y terror psicológico apenas estaba comenzando."
-];
+const waifu = document.getElementById('waifu');
+const obstacle = document.getElementById('obstacle');
+const scoreEl = document.getElementById('score');
+let jumping = false;
+let score = 0;
 
-let index = 0;
-
-function siguienteTexto() {
-  index++;
-  if (index < textos.length) {
-    document.getElementById('narrador').innerText = textos[index];
-  } else {
-    document.getElementById('narrador').innerText = "Continuará...";
-  }
+function jump() {
+  if (jumping) return;
+  jumping = true;
+  waifu.style.transition = 'bottom 0.3s';
+  waifu.style.bottom = '120px';
+  setTimeout(() => {
+    waifu.style.bottom = '0';
+    setTimeout(() => jumping = false, 300);
+  }, 300);
 }
+
+document.addEventListener('keydown', jump);
+document.addEventListener('touchstart', jump);
+
+function moveObstacle() {
+  let pos = window.innerWidth;
+  const interval = setInterval(() => {
+    if (pos < -50) {
+      pos = window.innerWidth;
+      score++;
+      scoreEl.innerText = 'Puntos: ' + score;
+    }
+    obstacle.style.right = pos + 'px';
+
+    // Colisión
+    const waifuBottom = parseInt(getComputedStyle(waifu).bottom);
+    if (pos < 100 && pos > 40 && waifuBottom < 60) {
+      alert('¡Game Over! Puntos: ' + score);
+      location.reload();
+      clearInterval(interval);
+    }
+
+    pos -= 10;
+  }, 30);
+}
+
+moveObstacle();
